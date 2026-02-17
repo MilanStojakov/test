@@ -1,0 +1,594 @@
+        /* FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        /* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #e8e8e8;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* ================= CENTRIRANJE FORME ================= */
+.auth-wrapper {
+    min-height: calc(100vh - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+    position: relative;
+    width: 850px;
+    max-width: 100%;
+    height: 500px;
+    background: #121111;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* ================= FORME ================= */
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.sign-up {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* AKTIVNO */
+.container.active .sign-in {
+    transform: translateX(100%);
+    pointer-events: none;
+}
+
+.container.active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    pointer-events: all;
+}
+
+/* ================= FORM ================= */
+.container form {
+    background: #121111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+    height: 100%;
+    gap: 12px;
+}
+
+.container h1 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.container input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #1c1c1c;
+    color: #fff;
+    outline: none;
+}
+
+.container input:focus {
+    border-color: #ed9224;
+}
+
+/* Stil za izbor uloge */
+.role-selection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.role-select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #1c1c1c; /* Ista boja kao tvoji inputi */
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.role-select:focus {
+    border-color: #ed9224; /* Narandžasti border na fokus */
+}
+
+/* Stil za opcije unutar padajućeg menija */
+.role-select option {
+    background: #1c1c1c;
+    color: #fff;
+}
+
+/* ================= DUGMAD ================= */
+
+/* Dugmad unutar formi (CRNI DEO) */
+.form-container button {
+    margin-top: 10px;
+    background-color: #121111;
+    color: #fff;
+    border: 1px solid #ed9224; /* Narandžasti border odmah da se vidi */
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #ed9224;
+    color: #121111;
+    border-color: #ed9224;
+    transform: scale(1.06);
+}
+
+/* Dugmad unutar toggle panela (NARANDŽASTI DEO) */
+.toggle-panel button {
+    margin-top: 10px;
+    background-color: #121111;
+    color: #fff;
+    border: 1px solid #121111;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-panel button:hover {
+    background-color: transparent;
+    color: #121111;
+    border-color: #121111;
+    transform: scale(1.06);
+}
+
+/* ================= TOGGLE ================= */
+.toggle-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 100;
+}
+
+.container.active .toggle-container {
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+
+.toggle {
+    background: linear-gradient(to right, #ed9224, #ffb347);
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.container.active .toggle {
+    transform: translateX(50%);
+}
+
+.toggle-panel {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 40px;
+}
+
+.toggle-left {
+    transform: translateX(-200%);
+}
+
+.container.active .toggle-left {
+    transform: translateX(0);
+}
+
+.toggle-right {
+    right: 0;
+}
+
+.container p {
+    font-size: 14px;
+    margin: 10px 0 20px;
+}
+
+        /* SLOGAN */
+.slogan {
+    background-color: #e8e8e8;
+    height: 40px;
+
+    display: flex;
+    align-items: center;     /* vertikalno */
+    justify-content: center; /* horizontalno */
+
+    font-weight: 500;
+}
+
+.slogan p {
+    margin: 0;               /* OBAVEZNO */
+    text-align: center;
+}
+
+
+        /* NAVBAR */
+/* NAVBAR REŠENJE SA GRID-OM */
+.navbar {
+    height: 100px;
+    background-color: #121111;
+    
+    /* Pravimo 3 kolone: 
+       1. 1fr - zauzima sav slobodan prostor levo
+       2. auto - zauzima samo onoliko koliko mu treba (za linkove)
+       3. 1fr - zauzima sav slobodan prostor desno (identično kao leva strana)
+    */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; 
+    
+    align-items: center;
+    padding: 0 10px; /* Smanji na 0 ako želiš logo skroz uz ivicu */
+    position: relative;
+}
+
+/* LOGO - Automatski ide u prvu kolonu */
+.logo-navbar {
+    height: 80px; /* Podesi visinu kako ti odgovara */
+    width: auto;
+    object-fit: contain;
+    justify-self: start; /* Gura logo na početak (levo) */
+}
+
+/* LINKOVI - Automatski idu u drugu (srednju) kolonu */
+.navigacija-lista {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-self: center; /* CENTRIRA LISTU TAČNO U SREDINU EKRANA */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    justify-self: end; /* Gura ikone na kraj (desno) */
+    position: relative;
+    z-index: 100;
+}
+
+.navigacija-lista li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigacija-lista li a:visited {
+    color: #fff;
+}
+
+.navigacija-lista li a:hover {
+    color: #ed9224;
+}
+
+        /* UNDERLINE ANIMACIJA */
+
+.navigacija-lista li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background-color: #ed9224;
+    transition: width 0.3s ease;
+}
+
+.navigacija-lista li a:hover::after {
+    width: 100%;
+}
+        /* HAMBURGER */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover span {
+    background-color: #ed9224;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+        /* USER IKONICA */
+
+.user-icon {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.user-icon:visited {
+    color: #fff;
+}
+
+.user-icon:hover {
+    color: #ed9224;
+}
+
+.user-icon i {
+    font-size: 22px;
+}
+            /* TOOLTIP ZA TELEFON */
+
+.footer .phone-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+        /* TOOLTIP ELEMENT */
+.footer .phone-tooltip {
+    position: absolute;
+    bottom: 130%;       /* iznad ikonice */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+/* Strelica ispod tooltipa */
+.footer .phone-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #121111 transparent transparent transparent;
+}
+
+/* Prikaz tooltipa samo na desktop uređajima */
+@media (hover: hover) and (pointer: fine) {
+    .footer .phone-link:hover .phone-tooltip {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* Na mobilnim uređajima tooltip se ne prikazuje */
+@media (hover: none) and (pointer: coarse) {
+    .footer .phone-tooltip {
+        display: none;
+    }
+}
+
+
+/* Osiguraj da mobilni meni ne utiče na footer */
+@media (max-width: 768px) {
+    .footer .socijalne-mreze {
+        flex-direction: row; /* ikone u redu, ne koloni */
+    }
+}
+
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .hamburger{
+                display: flex;
+            }
+
+    .navbar {
+        /* Na mobilnom prebacujemo sa grid-a na flex da logo ostane levo, a hamburger desno */
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navigacija-lista {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 100px; 
+        left: 0;
+        width: 100%;
+        background-color: #121111;
+        padding: 40px 0;
+        /* KLJUČNE IZMENE ISPOD: */
+        z-index: 1000; /* Mora biti veći od z-indexa forme (koja ima 100) */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        border-bottom: 2px solid #ed9224;
+    }
+
+    /* Povećaj razmak između stavki u meniju da se lakše klikne prstom */
+    .navigacija-lista li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    /* Osiguraj da se meni vidi kada je aktivan */
+    .navigacija-lista.active {
+        display: flex;
+    }
+}
+
+        /* SLIDE-DOWN ANIMACIJA */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+           /* FOOTER */
+
+.footer {
+    background-color: #121111;
+    color: #fff;
+    padding: 60px 20px 20px;
+    border-top: 1px solid #222;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tri jednake kolone */
+    gap: 40px;
+}
+
+.footer-column h3 {
+    color: #ed9224; /* Barber narandžasta/zlatna */
+    margin-bottom: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.footer-logo {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.footer-about {
+    font-size: 14px;
+    color: #bbb;
+    line-height: 1.6;
+}
+
+.work-hours {
+    list-style: none;
+    font-size: 14px;
+    color: #fff;
+}
+
+.work-hours li {
+    margin-bottom: 8px;
+}
+
+.socijalne-mreze {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin-top: 15px;
+}
+
+.socijalne-mreze li a i {
+    font-size: 24px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.socijalne-mreze li a:hover i {
+    color: #ed9224;
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+    font-size: 12px;
+    color: #a19b9b;
+}
+
+
+
+
+/* RESPONSIVE ZA FOOTER - Mobilna verzija */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Kolone idu jedna ispod druge */
+        text-align: center;
+    }
+
+    .socijalne-mreze {
+        justify-content: center;
+    }
+}

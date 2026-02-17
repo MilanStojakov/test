@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.boxicons.com/3.0.6/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link href='https://cdn.boxicons.com/3.0.6/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css deo/Login - SignIn.css">
+    <link rel="icon" href="/slike/Logo1.png">
+    <title>Registracija | LexaFade</title>
+</head>
+<body>
+    <div class="slogan">
+        <p>Vasa je ideja, mi smo tu da je realizujemo 🤗</p>
+    </div>
+
+    <div class="navbar">
+        <a href="home.html">
+            <img src="/slike/Logo1.png" class="logo-navbar" alt="LexaFade logo">
+        </a>
+
+            <ul class="navigacija-lista">
+                <li><a href="home.html">Pocetna</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="o-nama.html">O nama</a></li>
+                <li><a href="Login - SignIn.html">Registracija</a></li>
+            </ul>
+
+        <div class="nav-right">
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="Login - SignIn.html" class="user-icon">
+                <i class='bxs bx-user'></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- FORM SECTION -->
+<main class="auth-wrapper">
+
+<div class="container" id="container">
+
+    <!-- REGISTER -->
+    <div class="form-container sign-up">
+        <form action="/php deo/register.php" method="POST">
+            <h1>Registracija</h1>
+            <input type="text" name="ime" placeholder="Ime" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Lozinka" required>
+            <div class="role-selection">
+            <label for="role" style="color: #fff; font-size: 14px;">Prijavljujem se kao:</label>
+            <select name="role" id="role" class="role-select">
+                <option value="klijent">Klijent</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+            <button type="">Registrujte se</button>
+        </form>
+    </div>
+
+    <!-- LOGIN -->
+    <div class="form-container sign-in">
+        <form action="/php deo/login.php" method="POST">
+            <h1>Prijava</h1>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Lozinka" required>
+            <button>Prijavite se</button>
+        </form>
+    </div>
+
+    <!-- TOGGLE -->
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1>Dobrodošli nazad!</h1>
+                <p>Imate nalog?</p>
+                <button id="login">Prijava</button>
+            </div>
+
+            <div class="toggle-panel toggle-right">
+                <h1>Zdravo!</h1>
+                <p>Nemate nalog?</p>
+                <button id="register">Registracija</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</main>
+
+        <!-- Ovo je footer -->
+
+ <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-column">
+            <img src="/slike/Logo1.png" class="footer-logo" alt="LexaFade logo">
+            <p class="footer-about">Vrhunska usluga šišanja i nege brade u srcu grada. Vaša je ideja, a naša realizacija.</p>
+        </div>
+
+        <div class="footer-column">
+            <h3>RADNO VREME</h3>
+            <ul class="work-hours">
+                <li>Pon - Pet: 16:00 - 20:00</li>
+                <li>Subota: 14:00 - 16:00</li>
+                <li>Nedelja: Neradna</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>KONTAKT</h3>
+            <p>Kamenka Rajica 3, Sivac</p>
+            <p>Tel: +381 62 187 7175</p>
+            <ul class="socijalne-mreze">
+                <li><a href="https://www.instagram.com/lexa_fade/"><i class='bx bxl-instagram'></i></a></li>
+                <li><a href="https://www.facebook.com/Brat.pipac?locale=sr_RS"><i class='bx bxl-facebook-circle'></i></a></li>
+                <li><a href="tel:+381621877175"><i class='bx bxs-phone'></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 LexaFade Barbershop. Sva prava zadržana.</p>
+    </div>
+</footer>
+
+    <script src="/script deo/login-signin.js"></script>
+</body>
+</html>

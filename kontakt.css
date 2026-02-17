@@ -1,0 +1,450 @@
+        /* FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        /* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #e8e8e8;
+}
+
+        /* SLOGAN */
+.slogan {
+    background-color: #e8e8e8;
+    height: 40px;
+
+    display: flex;
+    align-items: center;     /* vertikalno */
+    justify-content: center; /* horizontalno */
+
+    font-weight: 500;
+}
+
+.slogan p {
+    margin: 0;               /* OBAVEZNO */
+    text-align: center;
+}
+
+
+        /* NAVBAR */
+/* NAVBAR REŠENJE SA GRID-OM */
+.navbar {
+    height: 100px;
+    background-color: #121111;
+    
+    /* Pravimo 3 kolone: 
+       1. 1fr - zauzima sav slobodan prostor levo
+       2. auto - zauzima samo onoliko koliko mu treba (za linkove)
+       3. 1fr - zauzima sav slobodan prostor desno (identično kao leva strana)
+    */
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; 
+    
+    align-items: center;
+    padding: 0 10px; /* Smanji na 0 ako želiš logo skroz uz ivicu */
+    position: relative;
+}
+
+/* LOGO - Automatski ide u prvu kolonu */
+.logo-navbar {
+    height: 80px; /* Podesi visinu kako ti odgovara */
+    width: auto;
+    object-fit: contain;
+    justify-self: start; /* Gura logo na početak (levo) */
+}
+
+/* LINKOVI - Automatski idu u drugu (srednju) kolonu */
+.navigacija-lista {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-self: center; /* CENTRIRA LISTU TAČNO U SREDINU EKRANA */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    justify-self: end; /* Gura ikone na kraj (desno) */
+    position: relative;
+    z-index: 100;
+}
+
+.navigacija-lista li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigacija-lista li a:visited {
+    color: #fff;
+}
+
+.navigacija-lista li a:hover {
+    color: #ed9224;
+}
+
+        /* UNDERLINE ANIMACIJA */
+
+.navigacija-lista li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background-color: #ed9224;
+    transition: width 0.3s ease;
+}
+
+.navigacija-lista li a:hover::after {
+    width: 100%;
+}
+
+
+
+        /* HAMBURGER */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger:hover span {
+    background-color: #ed9224;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+        /* USER IKONICA */
+
+.user-icon {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.user-icon:visited {
+    color: #fff;
+}
+
+.user-icon:hover {
+    color: #ed9224;
+}
+
+.user-icon i {
+    font-size: 22px;
+}
+
+.container{
+    width: 80%;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #e8e8e8;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba( 0, 0, 0, 0.2);
+}
+.container h1{
+    text-align: center;
+    margin: 20px;
+    color: #121111;
+    font-size: 30px;
+}
+
+.container p{
+    text-align: center;
+    margin: 20px;
+    color: #121111;
+    font-size: 16px;
+}
+
+form input,
+form textarea{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #121111;
+}
+
+form input:focus,
+form textarea:focus{
+    outline: none;
+    box-shadow: 0 0 3px #121111;
+} 
+
+form button{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #121111;
+    color: #e8e8e8;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+form button:hover{
+    background-color: #ed9224;
+    color: #121111;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.socijalne-mreze1 {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.socijalne-mreze1 li a i {
+    font-size: 24px;
+    color: #121111;
+    transition: color 0.3s ease;
+}
+
+.socijalne-mreze1 li a:hover i {
+    color: #ed9224;
+    transform: scale(1.2);
+}
+
+
+            /* TOOLTIP ZA TELEFON */
+
+.footer .phone-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}
+
+        /* TOOLTIP ELEMENT */
+.footer .phone-tooltip {
+    position: absolute;
+    bottom: 130%;       /* iznad ikonice */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+/* Strelica ispod tooltipa */
+.footer .phone-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #121111 transparent transparent transparent;
+}
+
+/* Prikaz tooltipa samo na desktop uređajima */
+@media (hover: hover) and (pointer: fine) {
+    .footer .phone-link:hover .phone-tooltip {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+/* Na mobilnim uređajima tooltip se ne prikazuje */
+@media (hover: none) and (pointer: coarse) {
+    .footer .phone-tooltip {
+        display: none;
+    }
+}
+
+
+/* Osiguraj da mobilni meni ne utiče na footer */
+@media (max-width: 768px) {
+    .footer .socijalne-mreze {
+        flex-direction: row; /* ikone u redu, ne koloni */
+    }
+}
+
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .hamburger{
+                display: flex;
+            }
+
+    .navbar {
+        /* Na mobilnom prebacujemo sa grid-a na flex da logo ostane levo, a hamburger desno */
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navigacija-lista {
+        /* Sakrivamo meni po defaultu */
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 100px; /* Visina tvog navbara */
+        left: 0;
+        width: 100%;
+        background-color: #121111;
+        padding: 20px 0;
+        z-index: 100;
+        align-items: center;   
+        justify-content: center; 
+        text-align: center;
+    }
+
+    /* Kada JS doda klasu .active, meni se prikazuje */
+    .navigacija-lista.active {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+}
+
+        /* SLIDE-DOWN ANIMACIJA */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+
+
+            /* FOOTER */
+
+.footer {
+    background-color: #121111;
+    color: #fff;
+    padding: 60px 20px 20px;
+    border-top: 1px solid #222;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tri jednake kolone */
+    gap: 40px;
+}
+
+.footer-column h3 {
+    color: #ed9224; /* Barber narandžasta/zlatna */
+    margin-bottom: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.footer-logo {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.footer-about {
+    font-size: 14px;
+    color: #bbb;
+    line-height: 1.6;
+}
+
+.work-hours {
+    list-style: none;
+    font-size: 14px;
+    color: #fff;
+}
+
+.work-hours li {
+    margin-bottom: 8px;
+}
+
+.socijalne-mreze {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin-top: 15px;
+}
+
+.socijalne-mreze li a i {
+    font-size: 24px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.socijalne-mreze li a:hover i {
+    color: #ed9224;
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #222;
+    font-size: 12px;
+    color: #a19b9b;
+}
+
+
+
+
+/* RESPONSIVE - Mobilna verzija */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Kolone idu jedna ispod druge */
+        text-align: center;
+    }
+
+    .socijalne-mreze {
+        justify-content: center;
+    }
+}
